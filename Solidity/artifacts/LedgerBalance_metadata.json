@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "updatesBalance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Udemy/special-variables.sol": "LedgerBalance"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Udemy/special-variables.sol": {
+			"keccak256": "0xd8459faf6aa741a066e1965cd11199948a53467b8ec56a4953f6bcd7e74c577f",
+			"urls": [
+				"bzz-raw://e35a8e5e27d9b5b44442bc76f73d1c68115b6ffc8f7aa557cc27991f4fedbc4f",
+				"dweb:/ipfs/QmYjazmP3HnGB3XtmMs11k1vzQB6sy2Y4gcnW7Rrr56XdS"
+			]
+		}
+	},
+	"version": 1
+}
