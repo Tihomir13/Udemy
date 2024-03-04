@@ -202,3 +202,37 @@ btn.addEventListener('click', function () {
 });
 
 getCountryData('dsfddsfsdf');
+
+
+/////////////////////////////////////////////// Chalange 1
+function WhereAmI(lat, lng) {
+
+    fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`, `not found`)
+        .then(response => {
+            if (!response.ok)
+                throw new Error(`Problem with geocoding ${response.status}`);
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            console.log(`You are in ${data.city}, ${data.country}`);
+
+            return fetch(`https://restcountries.com/v2/name/${data.country}`);
+        })
+
+        .then(response => {
+            if (!response.ok)
+                throw new Error(`Country not found (${response.status})`);
+            response.json()
+        })
+        .then(data => renderCountry(data, 'neighbour'))
+        .catch(err => console.error(`${error.message} 💥`));
+}
+
+WhereAmI(50, 100);
+
+
+console.log(`Test Start`);
+setTimeout(() => console.log(`0 sec timer`), 0);
+Promise.resolve(`Resolved promis 1`).then(res => console.log(res));
+console.log(`Test end`);
