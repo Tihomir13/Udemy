@@ -1,5 +1,6 @@
 'use strict';
 
+/* 
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
@@ -293,3 +294,102 @@ const getPosition = function () {
 
 getPosition()
     .then(pos => console.log(pos));
+
+    
+    //Chalange 2
+    const wait = function (seconds) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, seconds * 1000)
+        });
+    }
+    
+    const imgContainer = document.querySelector('.images');
+    
+    const createImage = function (imgPath) {
+        return new Promise(function (resolve, reject) {
+            const img = document.createElement(`img`);
+            img.src = imgPath;
+            
+            img.addEventListener('load', function () {
+                imgContainer.append(img);
+                resolve(img);
+            });
+            
+            img.addEventListener(`error`, function () {
+                reject(new Error(`cannot found`));
+            })
+        });
+    }
+    
+    let currentImg;
+    
+    createImage(`img\img-1.jpg`)
+    .then(img => {
+        currentImg = img;
+        console.log(`Image 1 loaded`);
+        return wait(2);
+    })
+    .then(() => {
+        currentImg.style.display = `none`;
+        return new Promise('img/img-2.jpg');
+    })
+    .then(img => {
+        currentImg = img;
+        console.log(`Image 2 loaded`);
+        return wait(2);
+    })
+    .then(() => {
+        currentImg.style.display = `none`;
+    })
+    .catch(error => {
+        console.log(error);
+    });
+    
+    */
+const getPosition = function () {
+    return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+};
+
+// fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
+
+const whereAmI = async function () {
+    try {
+
+        const pos = await getPosition();
+        const { latitude: lat, longitude: lng } = pos.coords;
+
+        //Reverse geocoding
+        const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+        const dataGeo = await resGeo.json();
+        console.log(dataGeo);
+
+
+        const res = await fetch(
+            `https://restcountries.com/v2/name/${dataGeo.country}`);
+
+        const data = await res.json();
+        console.log(data);
+        renderCountry(data[0]);
+
+    }
+    catch (err) {
+        console.error(err);
+    }
+};
+
+whereAmI();
+
+(async function () {
+    try {
+        const city = await (whereAmI());
+    }
+    catch (err) {
+        console.log(`2: ${err.message}`);
+    }
+    console.log(`3: Finished getting location`);
+
+})
+console.log(`FIRST`);
+
