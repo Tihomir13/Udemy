@@ -481,7 +481,20 @@ createImage(`img\img-1.jpg`)
     });
 
 const loadNPause = async function () {
-    let img1 = await (`img\img-1.jpg`)
-    console.log(`Image 1 loaded`);
-    return wait(2);
+    try {
+        // Load image 1
+        let img = await createImage(`img\img-1.jpg`)
+        console.log(`Image 1 loaded`);
+        await wait(2);
+        img.style.display = `none`;
+
+        // Load image 2
+        img = await createImage(`img\img-2.jpg`)
+        console.log(`Image 1 loaded`);
+        await wait(2);
+        img.style.display = `none`;
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
