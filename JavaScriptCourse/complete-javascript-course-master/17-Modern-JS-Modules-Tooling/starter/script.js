@@ -58,7 +58,7 @@ const ShoppingCart2 = (function () {
 ShoppingCart2.addToCart('apple', 4);
 */
 
-import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+import cloneDeep from "lodash-es";
 
 const state = {
     cart: [
@@ -74,3 +74,18 @@ console.log(stateClone);
 
 const stateDeepClone = cloneDeep(state);
 console.log(stateDeepClone);
+
+if (module.hot) {
+    module.hot.accept();
+}
+
+class Person {
+    greeting = "Hey"
+
+    constructor(name) {
+        this.name = name;
+        console.log();
+    }
+}
+
+import 'regenerator-runtime/runtime';
