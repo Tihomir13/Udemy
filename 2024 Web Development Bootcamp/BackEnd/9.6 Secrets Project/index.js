@@ -56,15 +56,42 @@ app.get("/logout", (req, res) => {
   });
 });
 
-app.get("/secrets", (req, res) => {
+app.get("/secrets", async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("secrets.ejs");
-
+    try {
+      const secret = (await db.query("SELECT secret FROM users WHERE email = $1", [req.user.email])).rows[0].secret;
+      if (secret) {
+        res.render("secrets.ejs", { secret: secret });
+      }
+      else
+        res.render("secrets.ejs", { secret: "" });
+    } catch (error) {
+      console.log(error);
+    }
     //TODO: Update this to pull in the user secret to render in secrets.ejs
   } else {
     res.redirect("/login");
   }
 });
+
+app.get("/submit", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("submit.ejs")
+  }
+  else
+    res.redirect("/login");
+})
+
+app.post("/submit", async (req, res) => {
+  const secret = req.body.secret;
+  const email = req.user.email;
+  try {
+    await db.query("UPDATE users SET secret = $1 WHERE email = $2", [secret, email]);
+    res.redirect("/secrets")
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 //TODO: Add a get route for the submit button
 //Think about how the logic should work with authentication.
@@ -87,7 +114,7 @@ app.get(
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/secrets",
+    successRedirect: "/submit",
     failureRedirect: "/login",
   })
 );
@@ -132,9 +159,7 @@ passport.use(
   "local",
   new Strategy(async function verify(username, password, cb) {
     try {
-      const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
-        username,
-      ]);
+      const result = await db.query("SELECT * FROM users WHERE email = $1 ", [username]);
       if (result.rows.length > 0) {
         const user = result.rows[0];
         const storedHashedPassword = user.password;
@@ -189,6 +214,7 @@ passport.use(
     }
   )
 );
+
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });
