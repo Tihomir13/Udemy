@@ -168,3 +168,15 @@ class MedicalAppointmentPrinter
             "Appointment will take place on " + medicalAppointment.GetDate());
     }
 }
+
+// var person = new Person
+// {
+//     Name = "John",
+//     YearOfBirth = 1981
+// }
+
+// class Person
+// {
+//     public string Name { get; set; }
+//     public int YearOfBirth { get; init; }
+// }
