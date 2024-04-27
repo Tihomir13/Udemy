@@ -22,7 +22,7 @@ namespace _03_MyCookie
                 Console.WriteLine(ingridients[choice - 1].Name);
                 newRecipe.Add(ingridients[choice - 1]);
                 counter++;
-            } while (counter < Recipe.numberOfIngridients || choice > ingridients.Count);
+            } while (counter < Recipe.numberOfIngridients);
             
             Console.WriteLine();
             if(newRecipe.Count!=0)
