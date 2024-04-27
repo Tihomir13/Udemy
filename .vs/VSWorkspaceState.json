@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Ultimate C# Masterclass for 2024"
+    "\\Ultimate C# Masterclass for 2024",
+    "\\Ultimate C# Masterclass for 2024\\03_MyCookie",
+    "\\Ultimate C# Masterclass for 2024\\03_PolymorphismInheritanceInterfaces",
+    "\\Ultimate C# Masterclass for 2024\\03_PolymorphismInheritanceInterfaces\\Pizzeria"
   ],
-  "SelectedNode": "\\Ultimate C# Masterclass for 2024\\UltimateCSharpMasterclass.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -95,6 +95,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "16_QuoteFinder", "16_QuoteF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDiceGame", "MyDiceGame\MyDiceGame.csproj", "{0B39BF49-4C74-47DD-878C-D782B24EA575}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_MyCookie", "03_MyCookie\03_MyCookie.csproj", "{DE726191-EB82-4FF1-98EF-BD16CAE3215B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +287,10 @@ Global
 		{0B39BF49-4C74-47DD-878C-D782B24EA575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B39BF49-4C74-47DD-878C-D782B24EA575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B39BF49-4C74-47DD-878C-D782B24EA575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE726191-EB82-4FF1-98EF-BD16CAE3215B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE726191-EB82-4FF1-98EF-BD16CAE3215B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE726191-EB82-4FF1-98EF-BD16CAE3215B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE726191-EB82-4FF1-98EF-BD16CAE3215B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
