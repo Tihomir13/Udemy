@@ -17,10 +17,10 @@ namespace _03_MyCookie
             do
             {
                 Ingredients.Printing_Informative_Msg();
-                int choice = int.Parse(Console.ReadLine());
+                // int choice = int.Parse(Console.ReadLine());
 
-                Console.WriteLine(ingridients[choice - 1].Name);
-                newRecipe.Add(ingridients[choice - 1]);
+                // Console.WriteLine(ingridients[choice - 1].Name);
+                // newRecipe.Add(ingridients[choice - 1]);
                 counter++;
             } while (counter < Recipe.numberOfIngridients);
             
@@ -42,25 +42,14 @@ namespace _03_MyCookie
 
     public class Ingredients
     {
-        private string? _name;
-        private string? _instruction;
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public string Instruction
-        {
-            get { return _instruction; }
-            set { _instruction = value; }
-        }
+        public string Instruction { get; set; }
 
         public Ingredients(string Name, string Instruction)
         {
-            _name = Name;
-            _instruction = Instruction;
+            this.Name = Name;
+            this.Instruction = Instruction;
         }
 
         public static void Add_Ingridients(List<Ingredients> ingridients)
