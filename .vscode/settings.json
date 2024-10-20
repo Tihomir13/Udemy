@@ -2,5 +2,5 @@
     "cSpell.words": [
         "devkit"
     ],
-    "solidity.compileUsingRemoteVersion": "v0.8.19+commit.7dd6d404"
+    "solidity.compileUsingRemoteVersion": "v0.4.17+commit.bdeb9e52"
 }
