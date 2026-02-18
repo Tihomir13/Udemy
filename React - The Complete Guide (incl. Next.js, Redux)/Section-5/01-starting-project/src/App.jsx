@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import UserInputs from "./components/UserInputs";
-import Results from './components/Results';
+import Results from "./components/Results";
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -20,11 +20,13 @@ function App() {
     });
   }
 
+  isInputValid = userInfo.duration > 0;
+
   return (
     <>
       <Header />
       <UserInputs onHandleChange={handleInfoChange} userInfo={userInfo} />
-      <Results userInfo={userInfo}/>
+      {isInputValid && <Results userInfo={userInfo} />}
     </>
   );
 }
