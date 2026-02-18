@@ -1,7 +1,32 @@
+import { useState } from "react";
+import Header from "./components/Header";
+import UserInputs from "./components/UserInputs";
+import Results from './components/Results';
+
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0,
+  });
+
+  function handleInfoChange(inputIdentifier, newValue) {
+    setUserInfo((prevInfo) => {
+      return {
+        ...prevInfo,
+        [inputIdentifier]: newValue,
+      };
+    });
+  }
+
   return (
-    <h1>React Investment Calculator</h1>
-  )
+    <>
+      <Header />
+      <UserInputs onHandleChange={handleInfoChange} userInfo={userInfo} />
+      <Results userInfo={userInfo}/>
+    </>
+  );
 }
 
-export default App
+export default App;
