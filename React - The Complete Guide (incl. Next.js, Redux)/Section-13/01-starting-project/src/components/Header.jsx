@@ -1,8 +1,9 @@
-import { log } from '../log.js';
-import logoImg from '../assets/logo.png';
+import { log } from "../log.js";
+import logoImg from "../assets/logo.png";
+import { memo } from "react";
 
-export default function Header() {
-  log('<Header /> rendered', 1);
+const Header = memo(function Header() {
+  log("<Header /> rendered", 1);
 
   return (
     <header id="main-header">
@@ -10,4 +11,6 @@ export default function Header() {
       <h1>React - Behind The Scenes</h1>
     </header>
   );
-}
+});
+
+export default Header;
