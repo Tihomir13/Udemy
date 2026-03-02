@@ -4,6 +4,7 @@ import IconButton from '../UI/IconButton.jsx';
 import MinusIcon from '../UI/Icons/MinusIcon.jsx';
 import PlusIcon from '../UI/Icons/PlusIcon.jsx';
 import CounterOutput from './CounterOutput.jsx';
+import CounterHistory from './CounterHistory.jsx';
 import { log } from '../../log.js';
 
 function isPrime(number) {
@@ -56,7 +57,7 @@ const Counter = memo(function Counter({ initialCount }) {
         The initial counter value was <strong>{initialCount}</strong>. It{' '}
         <strong>is {initialCountIsPrime ? 'a' : 'not a'}</strong> prime number.
       </p>
-      <p>
+      <div>
         <IconButton icon={MinusIcon} onClick={handleDecrement}>
           Decrement
         </IconButton>
@@ -65,7 +66,7 @@ const Counter = memo(function Counter({ initialCount }) {
           Increment
         </IconButton>
         <CounterHistory history={counterChanges} />
-      </p>
+      </div>
     </section>
   );
 });
